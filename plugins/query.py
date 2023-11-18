@@ -437,7 +437,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton("Hᴇʟᴩ 🕸️", callback_data="help"),
             InlineKeyboardButton("Aʙᴏᴜᴛ ✨", callback_data="about")
         ]]
-        await query.edit_message_media(InputMediaVideo(random.choice(PICS), START_MESSAGE.format(user=query.from_user.mention, bot=client.mention), parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
+        await query.edit_message_media(InputMediaVideo(random.choice(PICS), caption=START_MESSAGE.format(user=query.from_user.mention, bot=client.mention), parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
        
     elif query.data == "help":
         buttons = [[
@@ -455,7 +455,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
             InlineKeyboardButton('« Bᴀᴄᴋ', 'start')           
         ]]
-        await query.edit_message_media(InputMediaVideo(random.choice(PICS), script.HELP_TXT.format(query.from_user.mention), parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))     
+        await query.edit_message_media(InputMediaVideo(random.choice(PICS), caption=script.HELP_TXT.format(query.from_user.mention), parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))     
         
     elif query.data == "about":
         buttons= [[
@@ -464,7 +464,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
             InlineKeyboardButton('« Bᴀᴄᴋ', 'start')          
         ]]
-        await query.edit_message_media(InputMediaVideo(random.choice(PICS), script.ABOUT_TXT.format(temp.B_NAME), parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
+        await query.edit_message_media(InputMediaVideo(random.choice(PICS), caption=script.ABOUT_TXT.format(temp.B_NAME), parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif query.data == "source":
         buttons = [[
@@ -472,7 +472,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ],[
             InlineKeyboardButton('‹ Bᴀᴄᴋ', 'about')
         ]]
-        await query.edit_message_media(InputMediaVideo(random.choice(PICS), script.SOURCE_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
+        await query.edit_message_media(InputMediaVideo(random.choice(PICS), caption=script.SOURCE_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
       
     elif query.data == "admin":
         buttons = [[
@@ -485,7 +485,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         total, used, free = shutil.disk_usage(".")
         stats = script.SERVER_STATS.format(get_time(time.time() - client.uptime), psutil.cpu_percent(), psutil.virtual_memory().percent, humanbytes(total), humanbytes(used), psutil.disk_usage('/').percent, humanbytes(free))            
         stats_pic = await make_carbon(stats, True)
-        await query.edit_message_media(InputMediaVideo(stats_pic, script.ADMIN_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
+        await query.edit_message_media(InputMediaVideo(stats_pic, caption=script.ADMIN_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif query.data == "openfilter":
         buttons = [[
@@ -497,14 +497,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
             InlineKeyboardButton('« Bᴀᴄᴋ', 'help')           
         ]]
-        await query.edit_message_media(InputMediaVideo(random.choice(PICS), script.FILTER_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
+        await query.edit_message_media(InputMediaVideo(random.choice(PICS), caption=script.FILTER_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif query.data == "autofilter":
         buttons = [[
             InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
             InlineKeyboardButton('« Bᴀᴄᴋ', 'openfilter')           
         ]]
-        await query.edit_message_media(InputMediaVideo(random.choice(PICS), script.AUTOFILTER_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
+        await query.edit_message_media(InputMediaVideo(random.choice(PICS), caption=script.AUTOFILTER_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif query.data == "manuelfilter":
         buttons = [[
@@ -513,7 +513,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
             InlineKeyboardButton('« Bᴀᴄᴋ', 'openfilter')           
         ]]
-        await query.edit_message_media(InputMediaVideo(random.choice(PICS), script.MANUELFILTER_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
+        await query.edit_message_media(InputMediaVideo(random.choice(PICS), caption=script.MANUELFILTER_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif query.data == "globalfilter":
         buttons = [[
@@ -524,42 +524,42 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         if query.from_user.id not in ADMINS:
             return await query.answer("Sᴏʀʀʏ Tʜɪs Mᴇɴᴜ Oɴʟʏ Fᴏʀ Mʏ Aᴅᴍɪɴs ⚒️", show_alert=True)
-        await query.edit_message_media(InputMediaVideo(random.choice(PICS), script.GLOBALFILTER_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
+        await query.edit_message_media(InputMediaVideo(random.choice(PICS), caption=script.GLOBALFILTER_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif query.data.startswith("button"):
         buttons = [[
             InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
             InlineKeyboardButton('« Bᴀᴄᴋ', f"{'manuelfilter' if query.data == 'button' else 'globalfilter'}")           
         ]]
-        await query.edit_message_media(InputMediaVideo(random.choice(PICS), script.BUTTON_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
+        await query.edit_message_media(InputMediaVideo(random.choice(PICS), caption=script.BUTTON_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
    
     elif query.data == "coct":
         buttons = [[
             InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
             InlineKeyboardButton('« Bᴀᴄᴋ', 'help')           
         ]]
-        await query.edit_message_media(InputMediaVideo(random.choice(PICS), script.CONNECTION_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
+        await query.edit_message_media(InputMediaVideo(random.choice(PICS), caption=script.CONNECTION_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
          
     elif query.data == "newdata":
         buttons = [[
             InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
             InlineKeyboardButton('« Bᴀᴄᴋ', 'help')           
         ]]
-        await query.edit_message_media(InputMediaVideo(random.choice(PICS), script.FILE_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
+        await query.edit_message_media(InputMediaVideo(random.choice(PICS), caption=script.FILE_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif query.data == "extmod":
         buttons = [[
             InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
             InlineKeyboardButton('« Bᴀᴄᴋ', 'help')           
         ]]
-        await query.edit_message_media(InputMediaVideo(random.choice(PICS), script.EXTRAMOD_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
+        await query.edit_message_media(InputMediaVideo(random.choice(PICS), caption=script.EXTRAMOD_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif query.data == "gpmanager":
         buttons = [[
             InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
             InlineKeyboardButton('« Bᴀᴄᴋ', 'help')           
         ]]
-        await query.edit_message_media(InputMediaVideo(random.choice(PICS), script.GROUPMANAGER_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))           
+        await query.edit_message_media(InputMediaVideo(random.choice(PICS), caption=script.GROUPMANAGER_TXT, parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))           
         
     elif query.data == "stats":
         buttons = [[
@@ -574,7 +574,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         monsize = get_size(monsize)
         free = get_size(free)
         await query.message.edit('ʟᴏᴀᴅɪɴɢ....')
-        await query.edit_message_media(InputMediaVideo(random.choice(PICS), script.STATUS_TXT.format(total, users, chats, monsize, free), parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
+        await query.edit_message_media(InputMediaVideo(random.choice(PICS), caption=script.STATUS_TXT.format(total, users, chats, monsize, free), parse_mode=enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
     
     elif query.data.startswith("setgs"):
         ident, set_type, status, grp_id = query.data.split("#")
