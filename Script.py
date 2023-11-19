@@ -17,7 +17,7 @@ I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ
     SOURCE_TXT = """<b>NOTE:</b>
 - ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ʜᴇʀᴇ ◉› :<a href=https://github.com/>༄●⃝🦋𝙺𝚁𝙸𝚂𝙷𝙽𝙰_ﮩ٨ـﮩﮩ٨ـ♡࿐</a>
 
-<b>ᴅᴇᴠ: <a herf=https://t.me/vk_supports>༄●⃝🦋𝙺𝚁𝙸𝚂𝙷𝙽𝙰_ﮩ٨ـﮩﮩ٨ـ♡࿐</a></b>"""
+<b>ᴅᴇᴠ: <a herf=https://t.me/dhananjaya_ka>༄●⃝🦋𝙺𝚁𝙸𝚂𝙷𝙽𝙰_ﮩ٨ـﮩﮩ٨ـ♡࿐</a></b>"""
 
     FILE_TXT = """<b>➤ Hᴇʟᴘ Fᴏʀ Fɪʟᴇ Sᴛᴏʀᴇ</b>
 
